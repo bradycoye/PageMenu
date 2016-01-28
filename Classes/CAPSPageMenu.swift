@@ -263,7 +263,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
         controllerScrollView.alwaysBounceHorizontal = enableHorizontalBounce
         controllerScrollView.bounces = enableHorizontalBounce
         
-        controllerScrollView.frame = CGRectMake(0.0, menuHeight, self.view.frame.width, self.view.frame.height)
+        controllerScrollView.frame = CGRectMake(0.0, 0.0, self.view.frame.width, self.view.frame.height)
         
         self.view.addSubview(controllerScrollView)
         
@@ -276,7 +276,7 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
         // Set up menu scroll view
         menuScrollView.translatesAutoresizingMaskIntoConstraints = false
         
-        menuScrollView.frame = CGRectMake(0.0, self.view.frame.height-menuHeight, self.view.frame.width, menuHeight)
+        menuScrollView.frame = CGRectMake(0.0, self.view.frame.height - menuHeight, self.view.frame.width, menuHeight)
         
         self.view.addSubview(menuScrollView)
         
@@ -454,14 +454,14 @@ public class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureReco
         var selectionIndicatorFrame : CGRect = CGRect()
         
         if useMenuLikeSegmentedControl {
-            selectionIndicatorFrame = CGRectMake(0.0, menuHeight - selectionIndicatorHeight, self.view.frame.width / CGFloat(controllerArray.count), selectionIndicatorHeight)
+            selectionIndicatorFrame = CGRectMake(0.0, self.view.frame.height - menuHeight - selectionIndicatorHeight, self.view.frame.width / CGFloat(controllerArray.count), selectionIndicatorHeight)
         } else if menuItemWidthBasedOnTitleTextWidth {
             selectionIndicatorFrame = CGRectMake(menuMargin, menuHeight - selectionIndicatorHeight, menuItemWidths[0], selectionIndicatorHeight)
         } else {
             if centerMenuItems  {
                 selectionIndicatorFrame = CGRectMake(startingMenuMargin + menuMargin, menuHeight - selectionIndicatorHeight, menuItemWidth, selectionIndicatorHeight)
             } else {
-                selectionIndicatorFrame = CGRectMake(menuMargin, menuHeight - selectionIndicatorHeight, menuItemWidth, selectionIndicatorHeight)
+                selectionIndicatorFrame = CGRectMake(menuMargin, self.view.frame.height - menuHeight - selectionIndicatorHeight, menuItemWidth, selectionIndicatorHeight)
             }
         }
         
